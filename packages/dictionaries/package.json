@@ -1,5 +1,11 @@
 {
   "name": "@snow-keyboard/dictionaries",
   "main": "index.ts",
-  "license": "ISC"
+  "license": "ISC",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SnowLove123/snow-keyboard.git",
+    "directory": "packages/dictionaries"
+  }
 }

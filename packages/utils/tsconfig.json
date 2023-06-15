@@ -1,0 +1,40 @@
+/*
+ * @Author: Xiao Xiang Lun
+ * @LastEditors: Xiao Xiang Lun
+ * @Date: 2023-06-15 18:16:48
+ * @LastEditTime: 2023-06-15 18:16:52
+ * @FilePath: /snow-keyboard/packages/constants/tsconfig.ts
+ * @Environment: Win 10 node.js V 12.13.0
+ * @Description: 
+ * 关注作者请访问 https://snowlove.synology.me:5
+ */
+{
+  "include": ["src", "types", "test"],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "./",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["src/*", "node_modules/*"]
+    },
+    "jsx": "react",
+    "esModuleInterop": true
+  }
+}
