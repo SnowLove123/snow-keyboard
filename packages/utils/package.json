@@ -1,0 +1,6 @@
+{
+  "name": "@snow-keyboard/utils",
+  "private": true,
+  "main": "index.ts",
+  "license": "ISC"
+}

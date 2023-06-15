@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.js"></script>
+    <script src="./index.umd.js"></script>
+    <style>
+      body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .main-input {
+        height: 40px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body style="overflow-x: hidden">
+    <div id="app">
+      <div>{{title}}</div>
+      <input type="text" id="keyboard-input" class="main-input" />
+    </div>
+    <script>
+      console.log(
+        'snowlove-keyboard',
+        window['snowlove-keyboard'],
+        SnowKeyboard,
+      )
+      const vue = new Vue({
+        el: '#app',
+        data() {
+          return {
+            title: 'hello world',
+          }
+        },
+      })
+    </script>
+  </body>
+</html>

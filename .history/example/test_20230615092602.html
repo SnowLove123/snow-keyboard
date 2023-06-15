@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.47/vue.cjs.min.js"></script>
+    <script src="./index.umd.js"></script>
+    <style>
+      body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .main-input {
+        height: 40px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body style="overflow-x: hidden">
+    <div id="app">
+      <div>{{title}}</div>
+      <input type="text" id="keyboard-input" class="main-input" />
+    </div>
+    <script>
+      const vue = new Vue({
+        template: '#app',
+        data: () => {
+          return {
+            title: 'hello world',
+          }
+        },
+      })
+    </script>
+  </body>
+</html>

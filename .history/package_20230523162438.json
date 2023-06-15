@@ -1,0 +1,47 @@
+{
+  "name": "snow-keyboard",
+  "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "workspaces": [
+    "packages/*",
+    "example"
+  ],
+  "scripts": {
+    "watch:packages": "vite build --watch",
+    "dev:example": "npm -C example run dev",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "start": "concurrently \"npm run watch:packages\" \"npm run dev:example\""
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@types/node": "^18.14.6",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "@vanilla-extract/css": "^1.10.0",
+    "@vanilla-extract/vite-plugin": "^3.8.0",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.35.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4",
+    "vite-plugin-dts": "^2.0.2"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md}": "eslint --fix"
+  },
+  "dependencies": {
+    "@snow-keyboard/dictionaries": "workspace:*",
+    "@snow-keyboard/theme": "workspace:*",
+    "@snow-keyboard/utils": "workspace:*",
+    "@snow-keyboard/constants": "workspace:*",
+    "@snow-keyboard/layouts": "workspace:*"
+  }
+}
