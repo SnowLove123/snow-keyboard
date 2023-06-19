@@ -2,7 +2,7 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 17:50:25
- * @LastEditTime: 2023-06-15 11:54:48
+ * @LastEditTime: 2023-06-19 18:09:30
  * @FilePath: /snow-keyboard/vite.config.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
@@ -13,12 +13,57 @@ import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
+// export default defineConfig({
+//   plugins: [vanillaExtractPlugin({}), dts({ include: './packages' })],
+//   build: {
+//     lib: {
+//       entry: [resolve(__dirname, './packages/snow_keyboard/index.ts')],
+//       name: 'snow_keyboard',
+//       fileName: (format) => `index.${format}.js`,
+//     },
+//     rollupOptions: {
+//       // input: rollupInput(command, port),
+//       input: {
+//         // constants: resolve(__dirname, './packages/constants/index.ts'),
+//         // dictionaries: resolve(__dirname, './packages/dictionaries/index.ts'),
+//         //   // layouts: resolve(__dirname, './packages/layouts/index.ts'),
+//         //   // snow_keyboard: resolve(__dirname, './packages/snow_keyboard/index.ts'),
+//         theme: resolve(__dirname, './packages/theme/index.ts'),
+//         //   // utils: resolve(__dirname, './packages/utils/index.ts'),
+//       },
+//       output: [
+//         // {
+//         //   dir: 'packages/[name]/lib/',
+//         //   format: 'umd',
+//         // },
+//         {
+//           dir: `packages/${getDynamicDirectoryName}/lib/`,
+//           format: 'umd',
+//         },
+//       ],
+//     },
+//     minify: 'terser',
+//     terserOptions: {
+//       compress: {
+//         drop_console: true,
+//         drop_debugger: true,
+//       },
+//     },
+//   },
+// })
+
 export default defineConfig({
+  plugins: [vanillaExtractPlugin({}), dts({ include: './packages' })],
   build: {
     lib: {
-      entry: [resolve(__dirname, './packages/snow-keyboard/index.ts')],
-      name: 'snow-keyboard',
+      entry: [resolve(__dirname, './packages/snow_keyboard/index.ts')],
+      name: 'snow_keyboard',
       fileName: (format) => `index.${format}.js`,
+    },
+    rollupOptions: {
+      input: {
+        theme: resolve(__dirname, './packages/theme/index.ts'), // 主入口文件
+      },
     },
     minify: 'terser',
     terserOptions: {
@@ -28,5 +73,4 @@ export default defineConfig({
       },
     },
   },
-  plugins: [vanillaExtractPlugin(), dts({ include: './packages' })],
 })

@@ -3,7 +3,7 @@
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-17 13:11:29
  * @LastEditTime: 2023-06-15 12:54:11
- * @FilePath: /snow-keyboard/packages/utils/utils.ts
+ * @FilePath: /snow_keyboard/packages/utils/utils.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5

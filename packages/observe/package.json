@@ -1,9 +1,15 @@
 {
-  "name": "@snow-keyboard/observe",
+  "name": "@snow_keyboard/observe",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SnowLove123/snow_keyboard.git",
+    "directory": "packages/observe"
+  }
 }

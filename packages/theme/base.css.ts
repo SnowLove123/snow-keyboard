@@ -1,14 +1,4 @@
-/*
- * @Author: Xiao Xiang Lun
- * @LastEditors: Xiao Xiang Lun
- * @Date: 2023-05-19 17:50:25
- * @LastEditTime: 2023-06-08 18:36:47
- * @FilePath: /projects/test-collect/项目收集/snow-keyboard/packages/theme/base.css.ts
- * @Environment: Win 10 node.js V 12.13.0
- * @Description:
- * 关注作者请访问 https://snowlove.synology.me:5
- */
-import { BASE_WIDTH, BASE_GRID_GAP } from '@snow-keyboard/constants'
+import { BASE_WIDTH, BASE_GRID_GAP } from '@snow_keyboard/constants'
 import { globalKeyframes, globalStyle } from '@vanilla-extract/css'
 
 /** ----------- 键盘主体 start------------------ */

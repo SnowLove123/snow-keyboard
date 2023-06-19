@@ -3,7 +3,7 @@
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 17:52:45
  * @LastEditTime: 2023-06-15 12:56:44
- * @FilePath: /snow-keyboard/packages/snow-keyboard/keyboard.ts
+ * @FilePath: /snow_keyboard/packages/snow_keyboard/keyboard.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
@@ -16,9 +16,9 @@ import {
   isSingleLetter,
   toggleCase,
   removeAllGridItem,
-} from '@snow-keyboard/utils'
-import { BASE_WIDTH } from '@snow-keyboard/constants'
-import { Key, Layout } from '@snow-keyboard/layouts'
+} from '@snow_keyboard/utils'
+import { BASE_WIDTH } from '@snow_keyboard/constants'
+import { Key, Layout } from '@snow_keyboard/layouts'
 import { SnowKeyboard } from '.'
 export class Keyboard {
   private keyboardDocumentElement: HTMLDivElement | undefined

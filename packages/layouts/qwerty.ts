@@ -3,12 +3,12 @@
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-23 16:23:36
  * @LastEditTime: 2023-06-15 11:57:41
- * @FilePath: /snow-keyboard/packages/layouts/qwerty.ts
+ * @FilePath: /snow_keyboard/packages/layouts/qwerty.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
  */
-import { KeyCode } from '@snow-keyboard/constants'
+import { KeyCode } from '@snow_keyboard/constants'
 import type { Layout } from './typing'
 export const qwertyLayout: Layout = [
   [
@@ -55,7 +55,7 @@ export const qwertyLayout: Layout = [
     { keyCode: KeyCode.K, pri: 'k' },
     { keyCode: KeyCode.L, pri: 'l' },
     { keyCode: KeyCode.SEMICOLON, pri: ';', sec: ':' },
-    { keyCode: KeyCode.QUOTES, pri: '\'', sec: '"' },
+    { keyCode: KeyCode.QUOTES, pri: "'", sec: '"' },
     { keyCode: KeyCode.ENTER, pri: 'Enter', size: 'auto' },
   ],
   [

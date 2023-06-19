@@ -3,15 +3,15 @@
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 11:22:02
  * @LastEditTime: 2023-06-15 11:31:44
- * @FilePath: /snow-keyboard/packages/utils/dom.ts
+ * @FilePath: /snow_keyboard/packages/utils/dom.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
  */
 
-import { Key } from '@snow-keyboard/layouts'
+import { Key } from '@snow_keyboard/layouts'
 import { isHTMLElement } from './utils'
-import { KeyCode } from '@snow-keyboard/constants'
+import { KeyCode } from '@snow_keyboard/constants'
 
 type Attributes = {
   [key in string]: string

@@ -1,4 +1,4 @@
-// import type { KeyCode } from '@snow-keyboard/constants'
+// import type { KeyCode } from '@snow_keyboard/constants'
 export interface Key {
   keyCode: number
   pri: string

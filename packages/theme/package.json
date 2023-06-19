@@ -1,8 +1,9 @@
 {
-  "name": "@snow-keyboard/theme",
+  "name": "@snow_keyboard/theme",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "private": false
 }

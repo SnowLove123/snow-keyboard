@@ -3,7 +3,7 @@
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-06-02 17:08:35
  * @LastEditTime: 2023-06-15 11:55:10
- * @FilePath: /snow-keyboard/packages/snow-keyboard/association.ts
+ * @FilePath: /snow_keyboard/packages/snow_keyboard/association.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
@@ -14,8 +14,8 @@ import {
   createElement,
   createNestElement,
   moveCursor,
-} from '@snow-keyboard/utils'
-import { Dictionary } from '@snow-keyboard/dictionaries'
+} from '@snow_keyboard/utils'
+import { Dictionary } from '@snow_keyboard/dictionaries'
 import { GlobalEvent } from './event'
 import { SnowKeyboard } from '.'
 
