@@ -2,7 +2,7 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 17:50:25
- * @LastEditTime: 2023-06-19 18:09:30
+ * @LastEditTime: 2023-06-20 13:29:53
  * @FilePath: /snow-keyboard/vite.config.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
@@ -56,15 +56,20 @@ export default defineConfig({
   plugins: [vanillaExtractPlugin({}), dts({ include: './packages' })],
   build: {
     lib: {
-      entry: [resolve(__dirname, './packages/snow_keyboard/index.ts')],
+      entry: [
+        resolve(__dirname, './packages/snow_keyboard/index.ts'),
+        resolve(__dirname, './packages/theme/index.ts'),
+      ],
       name: 'snow_keyboard',
-      fileName: (format) => `index.${format}.js`,
-    },
-    rollupOptions: {
-      input: {
-        theme: resolve(__dirname, './packages/theme/index.ts'), // 主入口文件
+      fileName: (format, entryName) => {
+        console.log('format format', format, entryName)
+        if (entryName.indexOf('theme') > -1) {
+          return 'style.css'
+        }
+        return `keyboard.${format}.js`
       },
     },
+    rollupOptions: {},
     minify: 'terser',
     terserOptions: {
       compress: {

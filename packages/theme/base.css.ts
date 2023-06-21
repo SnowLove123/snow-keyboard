@@ -1,3 +1,13 @@
+/*
+ * @Author: Xiao Xiang Lun
+ * @LastEditors: Xiao Xiang Lun
+ * @Date: 2023-06-19 10:21:02
+ * @LastEditTime: 2023-06-20 14:41:02
+ * @FilePath: /snow-keyboard/packages/theme/base.css.ts
+ * @Environment: Win 10 node.js V 12.13.0
+ * @Description:
+ * 关注作者请访问 https://snowlove.synology.me:5
+ */
 import { BASE_WIDTH, BASE_GRID_GAP } from '@snow_keyboard/constants'
 import { globalKeyframes, globalStyle } from '@vanilla-extract/css'
 
@@ -17,6 +27,7 @@ globalStyle('.keyboard_wapper', {
     '1em 1em 2.4em #41414180, -1em -1em 2.4em #f8fdffe6, inset 1em 1em 2.4em transparent, inset -1em -1em 2.4em transparent',
   transition: 'all 0.4s cubic-bezier(0.5, 0.2, 0.3, 1)',
   opacity: 1,
+  zIndex: 9999,
 })
 globalStyle('.hidden', {
   gridTemplateRows: 'repeat(6,0em)',

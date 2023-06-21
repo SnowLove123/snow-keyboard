@@ -2,8 +2,8 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 17:52:45
- * @LastEditTime: 2023-06-19 16:11:32
- * @FilePath: /snow-keyboard/packages/snow-keyboard/index.ts
+ * @LastEditTime: 2023-06-20 18:35:11
+ * @FilePath: /snow-keyboard/packages/snow_keyboard/index.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
@@ -77,6 +77,7 @@ export class SnowKeyboard {
       mode: this.mode,
       size: this.size,
       layout: this.layout,
+      theme:this.theme
     })
     // 联想部分
     this.association = new Association(this.globalEvent, this.dictionary)

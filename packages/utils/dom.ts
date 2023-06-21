@@ -2,8 +2,8 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 11:22:02
- * @LastEditTime: 2023-06-15 11:31:44
- * @FilePath: /snow_keyboard/packages/utils/dom.ts
+ * @LastEditTime: 2023-06-20 14:51:22
+ * @FilePath: /snow-keyboard/packages/utils/dom.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
@@ -337,4 +337,17 @@ export function removeAllGridItem(parent: HTMLElement, className: string) {
       parent.removeChild(ele)
     })
   }
+}
+
+/**
+ * @description: 通知input元素更新数据
+ * @param input {Input}  :元素对象
+ * @param value {string}  :修改的值
+ * @response:
+ * @return {*}
+ */
+export function dispatchInput(input: HTMLInputElement, value: string) {
+  const inputEvent = new Event('input', { bubbles: true })
+  input.value = value
+  input.dispatchEvent(inputEvent)
 }

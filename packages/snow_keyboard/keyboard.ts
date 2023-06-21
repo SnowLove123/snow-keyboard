@@ -25,18 +25,22 @@ export class Keyboard {
   private keyboardEl: HTMLElement | undefined
   private mode: string
   private size: number
+  private theme: string
   private top = 0
   constructor({
     mode,
     size,
     layout,
+    theme,
   }: {
     mode: string
     size: number
     layout: Layout
+    theme: string
   }) {
     this.mode = mode
     this.size = size
+    this.theme = theme
     if (SnowKeyboard.inputEl)
       this.render(mode, size, SnowKeyboard.inputEl, layout)
   }
