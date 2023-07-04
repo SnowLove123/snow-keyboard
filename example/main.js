@@ -2,22 +2,25 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-06-19 10:21:02
- * @LastEditTime: 2023-06-20 14:57:26
+ * @LastEditTime: 2023-06-28 15:07:52
  * @FilePath: /snow-keyboard/example/main.js
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * @关注作者请访问 https://snowlove.synology.me:5
  */
 // import { SnowKeyboard } from '../packages/snow_keyboard'
-import { SnowKeyboard } from '../dist/keyboard.es.js'
+// import { SnowKeyboard } from '../dist/keyboard.es.js'
 
 // 延迟加载方式报错
+let keyboardModule = null
 if (
   (await import.meta.globEager('../dist/style.css')) &&
-  (await import.meta.globEager('../dist/keyboard.es.js'))
+  // (await import.meta.globEager('../dist/keyboard.es.js'))
+  (keyboardModule = await import.meta.globEager('../dist/keyboard.es.js'))
 ) {
   // CSS 文件存在，延迟引入
   setTimeout(() => {
+    const { SnowKeyboard } = keyboardModule['../dist/keyboard.es.js']
     const link = document.createElement('link')
     link.rel = 'stylesheet'
     link.href = '../dist/style.css'

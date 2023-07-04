@@ -1,0 +1,15 @@
+{
+  "name": "snow_keyboard",
+  "version": "0.0.2-alpha",
+  "description": "自定义虚拟键盘",
+  "author": "snowlove-浮川",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/keyboard.umd.js",
+  "module": "./dist/keyboard.es.js",
+  "types": "./dist/keyboard.es.d.ts",
+  "keywords": [
+    "keyboard"
+  ]
+}

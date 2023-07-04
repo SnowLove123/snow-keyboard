@@ -2,7 +2,7 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 17:50:25
- * @LastEditTime: 2023-06-20 13:29:53
+ * @LastEditTime: 2023-06-29 15:09:05
  * @FilePath: /snow-keyboard/vite.config.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
@@ -53,29 +53,31 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 // })
 
 export default defineConfig({
-  plugins: [vanillaExtractPlugin({}), dts({ include: './packages' })],
+  plugins: [
+    vanillaExtractPlugin({}),
+    dts({
+      include: './packages',
+      rollupTypes: true,
+      insertTypesEntry: true,
+    }),
+  ],
   build: {
     lib: {
       entry: [
         resolve(__dirname, './packages/snow_keyboard/index.ts'),
-        resolve(__dirname, './packages/theme/index.ts'),
+        // resolve(__dirname, './packages/theme/index.ts'),
       ],
       name: 'snow_keyboard',
-      fileName: (format, entryName) => {
-        console.log('format format', format, entryName)
-        if (entryName.indexOf('theme') > -1) {
-          return 'style.css'
-        }
-        return `keyboard.${format}.js`
-      },
+      fileName: (format) => `keyboard.${format}.js`,
+      // fileName: (format, entryName) => {
+      //   console.log('format format', format, entryName)
+      //   if (entryName.indexOf('theme') > -1) {
+      //     return 'style.css'
+      //   }
+      //   return `keyboard.${format}.js`
+      // },
     },
-    rollupOptions: {},
+    // rollupOptions: {},
     minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
   },
 })

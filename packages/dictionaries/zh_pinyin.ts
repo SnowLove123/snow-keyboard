@@ -4,12 +4,13 @@ import { Dictionary } from './typing'
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-17 11:36:49
- * @LastEditTime: 2023-05-17 11:36:52
- * @FilePath: /projects/test-collect/项目收集/虚拟键盘/packages/dictionaries/zh_pinyin.ts
+ * @LastEditTime: 2023-06-28 17:17:07
+ * @FilePath: /snow-keyboard/packages/dictionaries/zh_pinyin.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
  */
+/** @internal */
 export const ZH_PINYIN_DICT: Dictionary = {
   // 常用模糊音
   b: '不本被北报宝必波博布步碧',
