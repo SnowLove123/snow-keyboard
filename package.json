@@ -1,13 +1,14 @@
 {
-  "name": "snow-keyboard",
-  "version": "1.0.0",
+  "name": "snow_keyboard",
+  "version": "0.0.2-alpha",
   "description": "自定义虚拟键盘",
   "author": "snowlove-浮川",
   "files": [
     "dist"
   ],
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
+  "main": "./publish/keyboard.umd.js",
+  "module": "./publish/keyboard.es.js",
+  "types": "./publish/keyboard.es.d.ts",
   "workspaces": [
     "packages/*",
     "example"
@@ -15,11 +16,11 @@
   "scripts": {
     "watch:packages": "vite build --watch",
     "dev:example": "npm -C example run dev",
-    "build": "tsc && vite build",
+    "build": "tsc --declaration --removeComments && vite build && ts-node --project tsconfig.run.json build/index",
     "preview": "vite preview",
     "prepare": "husky install",
     "start": "concurrently \"npm run watch:packages\" \"npm run dev:example\"",
-    "publish": "monorepo-publish"
+    "test": "ts-node --project tsconfig.run.json build/index"
   },
   "license": "MIT",
   "private": false,
@@ -35,25 +36,24 @@
     "eslint": "^8.35.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.1.2",
+    "rollup-plugin-copy": "^3.4.0",
     "terser": "^5.18.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.5",
     "vite": "^4.1.4",
     "vite-plugin-dts": "^2.0.2"
+  },
+  "dependencies": {
+    "@snow_keyboard/constants": "workspace:*",
+    "@snow_keyboard/dictionaries": "workspace:*",
+    "@snow_keyboard/layouts": "workspace:*",
+    "@snow_keyboard/theme": "workspace:*",
+    "@snow_keyboard/utils": "workspace:*"
   },
   "lint-staged": {
     "example/*.{vue,js,ts,jsx,tsx,md}": "eslint --fix",
     "packages/*.{vue,js,ts,jsx,tsx,md}": "eslint --fix",
     "vite.config.ts": "eslint --fix"
-  },
-  "dependencies": {
-    "@snow-keyboard/constants": "workspace:*",
-    "@snow-keyboard/dictionaries": "workspace:*",
-    "@snow-keyboard/layouts": "workspace:*",
-    "@snow-keyboard/theme": "workspace:*",
-    "@snow-keyboard/utils": "workspace:*"
-  },
-  "directories": {
-    "example": "example"
   },
   "keywords": [
     "keyboard"

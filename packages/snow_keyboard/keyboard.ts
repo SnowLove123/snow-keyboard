@@ -2,8 +2,8 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 17:52:45
- * @LastEditTime: 2023-06-15 12:56:44
- * @FilePath: /snow-keyboard/packages/snow-keyboard/keyboard.ts
+ * @LastEditTime: 2023-06-28 16:13:16
+ * @FilePath: /snow-keyboard/packages/snow_keyboard/keyboard.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
@@ -16,27 +16,31 @@ import {
   isSingleLetter,
   toggleCase,
   removeAllGridItem,
-} from '@snow-keyboard/utils'
-import { BASE_WIDTH } from '@snow-keyboard/constants'
-import { Key, Layout } from '@snow-keyboard/layouts'
+} from '@snow_keyboard/utils'
+import { BASE_WIDTH } from '@snow_keyboard/constants'
+import { Key, Layout } from '@snow_keyboard/layouts'
 import { SnowKeyboard } from '.'
 export class Keyboard {
   private keyboardDocumentElement: HTMLDivElement | undefined
   private keyboardEl: HTMLElement | undefined
   private mode: string
   private size: number
+  // private theme: string
   private top = 0
   constructor({
     mode,
     size,
     layout,
-  }: {
+  }: // theme,
+  {
     mode: string
     size: number
     layout: Layout
+    // theme: string
   }) {
     this.mode = mode
     this.size = size
+    // this.theme = theme
     if (SnowKeyboard.inputEl)
       this.render(mode, size, SnowKeyboard.inputEl, layout)
   }
@@ -55,18 +59,14 @@ export class Keyboard {
         computeBaeFont(size)
         // 创建键盘
         const keyboardWapper = this.keyboardDocumentElement
-          ? this.keyboardDocumentElement
-          : createElement('div', {
-              class: 'keyboard_wapper',
-            })
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        this.top = inputEl!.offsetTop + inputEl!.offsetHeight + 20
-        // 根据input位置定位键盘位置
+            ? this.keyboardDocumentElement
+            : createElement('div', {
+                class: 'keyboard_wapper',
+              }),
+          { top, height } = inputEl.getBoundingClientRect(),
+          scrollTop = window.scrollY || document.documentElement.scrollTop
+        this.top = scrollTop + top + height + 20
         keyboardWapper.style.top = `${this.top}px`
-        // 渲染选字部分
-        // const candidateWapper = createCandidateElement()
-        // keyboardWapper.appendChild(candidateWapper)
-        // 渲染按键
         for (let k = 0; k < layout.length; k++) {
           const wapper = layout[k],
             keyWapper = createElement('div', {
@@ -78,11 +78,9 @@ export class Keyboard {
           }
           keyboardWapper.appendChild(keyWapper)
         }
-        // 添加键盘
         document.body.appendChild(keyboardWapper)
-        this.keyboardDocumentElement = keyboardWapper
+        this.keyboardDocumentElement = keyboardWapper as HTMLDivElement
         this.keyboardEl = keyboardWapper
-
         break
       // 数字键盘
       case 'num-keyboard':

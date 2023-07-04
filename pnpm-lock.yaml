@@ -6,11 +6,11 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.4.4
       '@commitlint/config-conventional': ^17.4.4
-      '@snow-keyboard/constants': workspace:*
-      '@snow-keyboard/dictionaries': workspace:*
-      '@snow-keyboard/layouts': workspace:*
-      '@snow-keyboard/theme': workspace:*
-      '@snow-keyboard/utils': workspace:*
+      '@snow_keyboard/constants': workspace:*
+      '@snow_keyboard/dictionaries': workspace:*
+      '@snow_keyboard/layouts': workspace:*
+      '@snow_keyboard/theme': workspace:*
+      '@snow_keyboard/utils': workspace:*
       '@types/node': ^18.14.6
       '@typescript-eslint/eslint-plugin': ^5.54.0
       '@typescript-eslint/parser': ^5.54.0
@@ -20,16 +20,18 @@ importers:
       eslint: ^8.35.0
       husky: ^8.0.0
       lint-staged: ^13.1.2
+      rollup-plugin-copy: ^3.4.0
       terser: ^5.18.0
+      ts-node: ^10.9.1
       typescript: ^4.9.5
       vite: ^4.1.4
       vite-plugin-dts: ^2.0.2
     dependencies:
-      '@snow-keyboard/constants': link:packages/constants
-      '@snow-keyboard/dictionaries': link:packages/dictionaries
-      '@snow-keyboard/layouts': link:packages/layouts
-      '@snow-keyboard/theme': link:packages/theme
-      '@snow-keyboard/utils': link:packages/utils
+      '@snow_keyboard/constants': link:packages/constants
+      '@snow_keyboard/dictionaries': link:packages/dictionaries
+      '@snow_keyboard/layouts': link:packages/layouts
+      '@snow_keyboard/theme': link:packages/theme
+      '@snow_keyboard/utils': link:packages/utils
     devDependencies:
       '@commitlint/cli': 17.4.4
       '@commitlint/config-conventional': 17.4.4
@@ -37,22 +39,24 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.54.0_6mj2wypvdnknez7kws2nfdgupi
       '@typescript-eslint/parser': 5.54.0_ycpbpc6yetojsgtrx3mwntkhsu
       '@vanilla-extract/css': 1.10.0
-      '@vanilla-extract/vite-plugin': 3.8.0_agqvrhnbnn523nf6ms3ci7hjq4
+      '@vanilla-extract/vite-plugin': 3.8.0_dfaahnazrdmken5kcbbh4rzq3m
       concurrently: 8.0.1
       eslint: 8.35.0
       husky: 8.0.3
       lint-staged: 13.1.2
+      rollup-plugin-copy: 3.4.0
       terser: 5.18.0
+      ts-node: 10.9.1_alpjt73dvgv6kni625hu7f2l4m
       typescript: 4.9.5
       vite: 4.1.4_2psqwt6nbfssbx3eqlfahrip6i
       vite-plugin-dts: 2.0.2_pakyy5w5azqvyjtjjomilajlpy
 
   example:
     specifiers:
-      snow-keyboard: workspace:^0.0.1
+      snow_keyboard: workspace:*
       vite: ^4.1.0
     dependencies:
-      snow-keyboard: link:..
+      snow_keyboard: link:../packages/snow_keyboard
     devDependencies:
       vite: 4.1.4
 
@@ -68,7 +72,7 @@ importers:
   packages/observe:
     specifiers: {}
 
-  packages/snow-keyboard:
+  packages/snow_keyboard:
     specifiers: {}
 
   packages/theme:
@@ -1118,8 +1122,25 @@ packages:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: true
 
+  /@types/fs-extra/8.1.2:
+    resolution: {integrity: sha512-SvSrYXfWSc7R4eqnOzbQF4TZmfpNSM9FrSWLU3EUnWBuyZqNBOrv1B1JA3byUDPUl9z4Ab3jeZG2eDdySlgNMg==}
+    dependencies:
+      '@types/node': 18.14.6
+    dev: true
+
+  /@types/glob/7.2.0:
+    resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
+    dependencies:
+      '@types/minimatch': 5.1.2
+      '@types/node': 18.14.6
+    dev: true
+
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/minimatch/5.1.2:
+    resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -1322,7 +1343,7 @@ packages:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
     dev: true
 
-  /@vanilla-extract/vite-plugin/3.8.0_agqvrhnbnn523nf6ms3ci7hjq4:
+  /@vanilla-extract/vite-plugin/3.8.0_dfaahnazrdmken5kcbbh4rzq3m:
     resolution: {integrity: sha512-HBCecR4eTbweo7wQPq9g/HBvxUi6Cua8O4Xk6t1by4W/imgEsHbRCCa9SowzZwg8lub7uJHBAdzWWpqY+LdH0w==}
     peerDependencies:
       vite: ^2.2.3 || ^3.0.0 || ^4.0.3
@@ -1330,7 +1351,7 @@ packages:
       '@vanilla-extract/integration': 6.2.1_2psqwt6nbfssbx3eqlfahrip6i
       outdent: 0.8.0
       postcss: 8.4.21
-      postcss-load-config: 3.1.4_postcss@8.4.21
+      postcss-load-config: 3.1.4_aesdjsunmf4wiehhujt67my7tu
       vite: 4.1.4_2psqwt6nbfssbx3eqlfahrip6i
     transitivePeerDependencies:
       - '@types/node'
@@ -1613,6 +1634,10 @@ packages:
 
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    dev: true
+
+  /colorette/1.4.0:
+    resolution: {integrity: sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g==}
     dev: true
 
   /colorette/2.0.19:
@@ -2183,6 +2208,15 @@ packages:
       universalify: 0.1.2
     dev: true
 
+  /fs-extra/8.1.0:
+    resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
+    engines: {node: '>=6 <7 || >=8'}
+    dependencies:
+      graceful-fs: 4.2.10
+      jsonfile: 4.0.0
+      universalify: 0.1.2
+    dev: true
+
   /fs.realpath/1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
@@ -2268,6 +2302,20 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       type-fest: 0.20.2
+    dev: true
+
+  /globby/10.0.1:
+    resolution: {integrity: sha512-sSs4inE1FB2YQiymcmTv6NWENryABjUNPeWhOvmn4SjtKybglsyPZxFB3U1/+L1bYi0rNZDqCLlHyLYDl1Pq5A==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@types/glob': 7.2.0
+      array-union: 2.1.0
+      dir-glob: 3.0.1
+      fast-glob: 3.2.12
+      glob: 7.2.3
+      ignore: 5.2.4
+      merge2: 1.4.1
+      slash: 3.0.0
     dev: true
 
   /globby/11.1.0:
@@ -2431,6 +2479,11 @@ packages:
 
   /is-plain-obj/1.1.0:
     resolution: {integrity: sha512-yvkRyxmFKEOQ4pNXCmJG5AEQNlXJS5LaONXo5/cLdTZdWvsZ1ioJEonLGAosKlMWE8lwUy/bJzMjcw8az73+Fg==}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
+  /is-plain-object/3.0.1:
+    resolution: {integrity: sha512-Xnpx182SBMrr/aBik8y+GuR4U1L9FqMSojwDQwPMmxyC6bvEqly9UBCxhauBF5vNh2gwWJNX6oDV7O+OM4z34g==}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -3020,7 +3073,7 @@ packages:
       pathe: 1.1.0
     dev: true
 
-  /postcss-load-config/3.1.4_postcss@8.4.21:
+  /postcss-load-config/3.1.4_aesdjsunmf4wiehhujt67my7tu:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
     peerDependencies:
@@ -3034,6 +3087,7 @@ packages:
     dependencies:
       lilconfig: 2.0.6
       postcss: 8.4.21
+      ts-node: 10.9.1_alpjt73dvgv6kni625hu7f2l4m
       yaml: 1.10.2
     dev: true
 
@@ -3184,6 +3238,17 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+    dev: true
+
+  /rollup-plugin-copy/3.4.0:
+    resolution: {integrity: sha512-rGUmYYsYsceRJRqLVlE9FivJMxJ7X6jDlP79fmFkL8sJs7VVMSVyA2yfyL+PGyO/vJs4A87hwhgVfz61njI+uQ==}
+    engines: {node: '>=8.3'}
+    dependencies:
+      '@types/fs-extra': 8.1.2
+      colorette: 1.4.0
+      fs-extra: 8.1.0
+      globby: 10.0.1
+      is-plain-object: 3.0.1
     dev: true
 
   /rollup/3.18.0:

@@ -2,36 +2,41 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 17:52:45
- * @LastEditTime: 2023-06-15 13:06:31
- * @FilePath: /snow-keyboard/packages/snow-keyboard/index.ts
+ * @LastEditTime: 2023-06-28 15:01:53
+ * @FilePath: /snow-keyboard/packages/snow_keyboard/index.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
  */
-import { qwertyLayout, qwertyZhLayout } from '@snow-keyboard/layouts'
-import type { Layout } from '@snow-keyboard/layouts'
-import { KeyCode } from '@snow-keyboard/constants'
+import { qwertyLayout, qwertyZhLayout } from '@snow_keyboard/layouts'
+import type { Layout } from '@snow_keyboard/layouts'
+import { KeyCode } from '@snow_keyboard/constants'
 import {
   combineElement,
   initInputEl,
   isSingleLetter,
   isTouchScreen,
-} from '@snow-keyboard/utils'
+} from '@snow_keyboard/utils'
 import {
   FocusTrigger,
   InputTrigger,
   TriggerEvent,
   MouseTrigger,
   TouchTrigger,
-} from '@snow-keyboard/constants'
+} from '@snow_keyboard/constants'
 import { KeyboardOptions } from './typing'
 import { Keyboard } from './keyboard'
 import { Association } from './association'
 import { GlobalEvent } from './event'
-import { Dictionary, Mode, ZH_PINYIN_DICT } from '@snow-keyboard/dictionaries'
+import { Dictionary, Mode, ZH_PINYIN_DICT } from '@snow_keyboard/dictionaries'
 export * from './keyboard'
-export * from '@snow-keyboard/theme'
+export * from '@snow_keyboard/constants'
+export * from '@snow_keyboard/dictionaries'
+export * from '@snow_keyboard/layouts'
+export * from '@snow_keyboard/utils'
+export * from '@snow_keyboard/theme'
 
+// console.log(123123123, theme)
 export class SnowKeyboard {
   private focusTrigger: FocusTrigger = MouseTrigger.FOCUS
   private inputTrigger: InputTrigger = MouseTrigger.INPUT
@@ -48,6 +53,7 @@ export class SnowKeyboard {
   private mode = 'full-keyboard'
   private type: string = Mode['英']
   private size = 16
+
   // private showKeyboard = false
   private showAssociation = false
   private shiftMode = false
@@ -72,6 +78,7 @@ export class SnowKeyboard {
       mode: this.mode,
       size: this.size,
       layout: this.layout,
+      // theme:this.theme
     })
     // 联想部分
     this.association = new Association(this.globalEvent, this.dictionary)

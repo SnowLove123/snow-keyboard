@@ -1,11 +1,6 @@
 {
-  "name": "@snow-keyboard/utils",
+  "name": "@snow_keyboard/utils",
   "main": "index.ts",
   "license": "ISC",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SnowLove123/snow-keyboard.git",
-    "directory": "packages/utils"
-  }
+  "private": false
 }

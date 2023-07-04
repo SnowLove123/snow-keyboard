@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 192.168.203.233 --port 2333 --open",
+    "dev": "vite --host 192.168.203.140 --port 2333 --open",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -12,6 +12,6 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
-    "snow-keyboard": "workspace:^0.0.1"
+    "snow_keyboard": "workspace:*"
   }
 }

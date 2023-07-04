@@ -1,5 +1,5 @@
 {
-  "name": "@snow-keyboard/constants",
+  "name": "@snow_keyboard/constants",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -7,7 +7,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/SnowLove123/snow-keyboard.git",
+    "url": "https://github.com/SnowLove123/snow_keyboard.git",
     "directory": "packages/constants"
   }
 }

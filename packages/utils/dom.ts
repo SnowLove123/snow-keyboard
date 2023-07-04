@@ -2,35 +2,25 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 11:22:02
- * @LastEditTime: 2023-06-15 11:31:44
+ * @LastEditTime: 2023-06-28 17:12:27
  * @FilePath: /snow-keyboard/packages/utils/dom.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
  */
 
-import { Key } from '@snow-keyboard/layouts'
+import { Key } from '@snow_keyboard/layouts'
 import { isHTMLElement } from './utils'
-import { KeyCode } from '@snow-keyboard/constants'
+import { KeyCode } from '@snow_keyboard/constants'
+import { NestTree, Attributes, TagName } from './typing'
 
-type Attributes = {
-  [key in string]: string
-}
-interface BaseElement<T> {
-  tagName: T
-  attribute: Attributes
-  innerHTML?: string
-  children?: BaseElement<T>[]
-}
-
-interface NestTree<T> {
-  tagName: keyof HTMLElementTagNameMap
-  attribute: Attributes
-  innerHTML?: string
-  children?: BaseElement<T>[]
-}
-
-// 根据input框获取input dom实例
+/**
+ * @description: 根据input框获取input dom实例
+ * @param inputEl {HTMLInputElement}  :
+ * @response:
+ * @return {*}
+ * @internal
+ */
 export function initInputEl(inputEl: HTMLInputElement | string | null) {
   console.log('initInputEl', isHTMLElement(inputEl))
   switch (isHTMLElement(inputEl)) {
@@ -50,6 +40,7 @@ export function initInputEl(inputEl: HTMLInputElement | string | null) {
  * @param action {number}  :动作 insert delete
  * @response: 最终input的值
  * @return {*}
+ * @internal
  */
 export function computeInputSelection(
   action: string,
@@ -129,6 +120,7 @@ export function computeInputSelection(
  * @param forward {number}  :
  * @response:
  * @return {*}
+ * @internal
  */
 export function moveCursor(inputEl: HTMLInputElement, forward: number) {
   const selectionStart = inputEl.selectionStart || 0,
@@ -148,6 +140,7 @@ export function moveCursor(inputEl: HTMLInputElement, forward: number) {
  * @param size {number}  :
  * @response:
  * @return {*}
+ * @internal
  */
 export function computeBaeFont(size: number) {
   const html = document.querySelector('html')
@@ -161,12 +154,13 @@ export function computeBaeFont(size: number) {
  * @param attribute {any}  :
  * @response:
  * @return {*}
+ * @internal
  */
 export function createElement<T extends keyof HTMLElementTagNameMap>(
   tagName: T,
   attribute: Attributes,
   innerHTML?: string,
-) {
+): HTMLElement | HTMLDivElement {
   const ele = document.createElement(tagName)
   Object.keys(attribute).forEach((key: string) => {
     ele.setAttribute(key, attribute[key])
@@ -178,27 +172,47 @@ export function createElement<T extends keyof HTMLElementTagNameMap>(
 }
 
 /**
+ * @description: 判断传入的变量是否属于html标签
+ * @param tagName {string}  :
+ * @response:
+ * @return {*}
+ * @internal
+ */
+function isHTMLElementTagName(
+  tagName: string,
+): tagName is keyof HTMLElementTagNameMap {
+  return tagName in document.createElement(tagName)
+}
+
+//
+/**
  * @description: tree结构创建元素
  * @param tree {NestTree}  :
  * @response:
  * @return {*}
+ * @internal
  */
-export function createNestElement(tree: NestTree<keyof HTMLElementTagNameMap>) {
+export function createNestElement(tree: NestTree) {
   let father: HTMLElement
-  // // console.log(tree)
+  console.log(tree)
   while (true) {
-    const { tagName, attribute, innerHTML } = tree
-    father = createElement(tagName, attribute, innerHTML)
-    if (!!tree.children) {
-      tree.children.forEach((item) => {
-        father.appendChild(createNestElement(item))
-      })
-      break
-    } else {
-      break
+    if (isHTMLElementTagName(tree.tagName)) {
+      // const { tagName, attribute, innerHTML } = tree
+      father = createElement<TagName>(
+        tree.tagName,
+        tree.attribute,
+        tree.innerHTML,
+      )
+      if (!!tree.children) {
+        tree.children.forEach((item) => {
+          father.appendChild(createNestElement(item))
+        })
+        break
+      } else {
+        break
+      }
     }
   }
-  // // console.log('father', father)
   return father
 }
 
@@ -207,6 +221,7 @@ export function createNestElement(tree: NestTree<keyof HTMLElementTagNameMap>) {
  * @param item {Key}  :
  * @response:
  * @return {*}
+ * @internal
  */
 export function createKeyButtonElement(item: Key) {
   const keyWapper = document.createElement('div'),
@@ -239,6 +254,7 @@ export function createKeyButtonElement(item: Key) {
   }  :
  * @response: 合并元素
  * @return {*}
+ * @internal
  */
 export function combineElement(newEle: HTMLElement, targetEle: HTMLElement) {
   const parentEle = targetEle.parentNode
@@ -261,6 +277,7 @@ export function combineElement(newEle: HTMLElement, targetEle: HTMLElement) {
  * @description: 创建候选字区域
  * @response:
  * @return {*}
+ * @internal
  */
 export function createCandidateElement() {
   const candWapper = document.createElement('div')
@@ -316,6 +333,7 @@ export function createCandidateElement() {
  * @param item {*}  :
  * @response:
  * @return {*}
+ * @internal
  */
 export function createCandidateWordElement(item: string) {
   const word = document.createElement('div')
@@ -330,6 +348,7 @@ export function createCandidateWordElement(item: string) {
  * @param className {string}  : 类名
  * @response:
  * @return {*}
+ * @internal
  */
 export function removeAllGridItem(parent: HTMLElement, className: string) {
   if (parent instanceof HTMLElement) {
@@ -337,4 +356,18 @@ export function removeAllGridItem(parent: HTMLElement, className: string) {
       parent.removeChild(ele)
     })
   }
+}
+
+/**
+ * @description: 通知input元素更新数据
+ * @param input {Input}  :元素对象
+ * @param value {string}  :修改的值
+ * @response:
+ * @return {*}
+ * @internal
+ */
+export function dispatchInput(input: HTMLInputElement, value: string) {
+  const inputEvent = new Event('input', { bubbles: true })
+  input.value = value
+  input.dispatchEvent(inputEvent)
 }

@@ -2,8 +2,8 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-06-02 17:08:35
- * @LastEditTime: 2023-06-15 11:55:10
- * @FilePath: /snow-keyboard/packages/snow-keyboard/association.ts
+ * @LastEditTime: 2023-06-20 14:54:29
+ * @FilePath: /snow-keyboard/packages/snow_keyboard/association.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
  * 关注作者请访问 https://snowlove.synology.me:5
@@ -13,9 +13,10 @@ import {
   computeInputSelection,
   createElement,
   createNestElement,
+  dispatchInput,
   moveCursor,
-} from '@snow-keyboard/utils'
-import { Dictionary } from '@snow-keyboard/dictionaries'
+} from '@snow_keyboard/utils'
+import { Dictionary } from '@snow_keyboard/dictionaries'
 import { GlobalEvent } from './event'
 import { SnowKeyboard } from '.'
 
@@ -288,9 +289,8 @@ export class Association {
       SnowKeyboard.inputEl!,
       input || this.keyword,
     )
-    if (SnowKeyboard.inputEl?.value != undefined) {
-      SnowKeyboard.inputEl.value = text
-    }
+    SnowKeyboard.inputEl?.value != undefined &&
+      dispatchInput(SnowKeyboard.inputEl, text)
     SnowKeyboard.inputEl?.setSelectionRange(range[0], range[1])
   }
   // 删除所有内容

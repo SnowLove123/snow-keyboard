@@ -1,5 +1,6 @@
 {
-  "name": "@snow_keyboard/dictionaries",
+  "name": "snow_keyboard",
+  "version": "1.0.0",
   "main": "index.ts",
   "license": "ISC",
   "private": false
