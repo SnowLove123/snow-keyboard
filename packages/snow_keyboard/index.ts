@@ -2,7 +2,7 @@
  * @Author: Xiao Xiang Lun
  * @LastEditors: Xiao Xiang Lun
  * @Date: 2023-05-19 17:52:45
- * @LastEditTime: 2023-06-20 18:35:11
+ * @LastEditTime: 2023-06-28 15:01:53
  * @FilePath: /snow-keyboard/packages/snow_keyboard/index.ts
  * @Environment: Win 10 node.js V 12.13.0
  * @Description:
@@ -34,6 +34,7 @@ export * from '@snow_keyboard/constants'
 export * from '@snow_keyboard/dictionaries'
 export * from '@snow_keyboard/layouts'
 export * from '@snow_keyboard/utils'
+export * from '@snow_keyboard/theme'
 
 // console.log(123123123, theme)
 export class SnowKeyboard {
@@ -77,7 +78,7 @@ export class SnowKeyboard {
       mode: this.mode,
       size: this.size,
       layout: this.layout,
-      theme:this.theme
+      // theme:this.theme
     })
     // 联想部分
     this.association = new Association(this.globalEvent, this.dictionary)

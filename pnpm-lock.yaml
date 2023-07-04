@@ -22,28 +22,31 @@ importers:
       lint-staged: ^13.1.2
       rollup-plugin-copy: ^3.4.0
       terser: ^5.18.0
+      ts-node: ^10.9.1
       typescript: ^4.9.5
       vite: ^4.1.4
       vite-plugin-dts: ^2.0.2
-    devDependencies:
-      '@commitlint/cli': 17.4.4
-      '@commitlint/config-conventional': 17.4.4
+    dependencies:
       '@snow_keyboard/constants': link:packages/constants
       '@snow_keyboard/dictionaries': link:packages/dictionaries
       '@snow_keyboard/layouts': link:packages/layouts
       '@snow_keyboard/theme': link:packages/theme
       '@snow_keyboard/utils': link:packages/utils
+    devDependencies:
+      '@commitlint/cli': 17.4.4
+      '@commitlint/config-conventional': 17.4.4
       '@types/node': 18.14.6
       '@typescript-eslint/eslint-plugin': 5.54.0_6mj2wypvdnknez7kws2nfdgupi
       '@typescript-eslint/parser': 5.54.0_ycpbpc6yetojsgtrx3mwntkhsu
       '@vanilla-extract/css': 1.10.0
-      '@vanilla-extract/vite-plugin': 3.8.0_agqvrhnbnn523nf6ms3ci7hjq4
+      '@vanilla-extract/vite-plugin': 3.8.0_dfaahnazrdmken5kcbbh4rzq3m
       concurrently: 8.0.1
       eslint: 8.35.0
       husky: 8.0.3
       lint-staged: 13.1.2
       rollup-plugin-copy: 3.4.0
       terser: 5.18.0
+      ts-node: 10.9.1_alpjt73dvgv6kni625hu7f2l4m
       typescript: 4.9.5
       vite: 4.1.4_2psqwt6nbfssbx3eqlfahrip6i
       vite-plugin-dts: 2.0.2_pakyy5w5azqvyjtjjomilajlpy
@@ -53,7 +56,7 @@ importers:
       snow_keyboard: workspace:*
       vite: ^4.1.0
     dependencies:
-      snow_keyboard: link:..
+      snow_keyboard: link:../packages/snow_keyboard
     devDependencies:
       vite: 4.1.4
 
@@ -1340,7 +1343,7 @@ packages:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
     dev: true
 
-  /@vanilla-extract/vite-plugin/3.8.0_agqvrhnbnn523nf6ms3ci7hjq4:
+  /@vanilla-extract/vite-plugin/3.8.0_dfaahnazrdmken5kcbbh4rzq3m:
     resolution: {integrity: sha512-HBCecR4eTbweo7wQPq9g/HBvxUi6Cua8O4Xk6t1by4W/imgEsHbRCCa9SowzZwg8lub7uJHBAdzWWpqY+LdH0w==}
     peerDependencies:
       vite: ^2.2.3 || ^3.0.0 || ^4.0.3
@@ -1348,7 +1351,7 @@ packages:
       '@vanilla-extract/integration': 6.2.1_2psqwt6nbfssbx3eqlfahrip6i
       outdent: 0.8.0
       postcss: 8.4.21
-      postcss-load-config: 3.1.4_postcss@8.4.21
+      postcss-load-config: 3.1.4_aesdjsunmf4wiehhujt67my7tu
       vite: 4.1.4_2psqwt6nbfssbx3eqlfahrip6i
     transitivePeerDependencies:
       - '@types/node'
@@ -3070,7 +3073,7 @@ packages:
       pathe: 1.1.0
     dev: true
 
-  /postcss-load-config/3.1.4_postcss@8.4.21:
+  /postcss-load-config/3.1.4_aesdjsunmf4wiehhujt67my7tu:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
     peerDependencies:
@@ -3084,6 +3087,7 @@ packages:
     dependencies:
       lilconfig: 2.0.6
       postcss: 8.4.21
+      ts-node: 10.9.1_alpjt73dvgv6kni625hu7f2l4m
       yaml: 1.10.2
     dev: true
 
